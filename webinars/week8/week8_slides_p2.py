@@ -242,31 +242,31 @@ utils.pprint(df.index)
 # New version
 # <example>
 ## We must "create a new fake CSV file" first
-#tsla_prc_csv = utils.csv_to_fobj(csv_cnts)
-#df = pd.read_csv(tsla_prc_csv, parse_dates=['date'], index_col='date')
-#utils.pprint(df)
+tsla_prc_csv = utils.csv_to_fobj(csv_cnts)
+df = pd.read_csv(tsla_prc_csv, parse_dates=['date'], index_col='date')
+utils.pprint(df)
 # </example>
 
 # Even better, the lec_utils.csv_to_df takes the same parameters as pd.read_csv
 # <example>
 ## Note that csv_cnts is a string, not an fobj
-#df = utils.csv_to_df(csv_cnts, parse_dates=['date'], index_col='date')
-#utils.pprint(df)
+df = utils.csv_to_df(csv_cnts, parse_dates=['date'], index_col='date')
+utils.pprint(df)
 # </example>
 
 # ----------------------------------------------------------------------------
 #   Illustrating the advantages of a datetime indexes 
 # ----------------------------------------------------------------------------
 # Select all data for a given year in one go
-df_2020  = '?'
+df_2020  = df.loc['2020']
 utils.pprint(df_2020)
 
 # Select all data for a given month
-df_2020_11  = '?'
+df_2020_11  = df.loc['2020-11']
 utils.pprint(df_2020_11)
 
 # Selecting date ranges using strings
-df_2020_11_0204  = '?'
+df_2020_11_0204  = df.loc['2020-11-02':'2022-11-04']
 utils.pprint(df_2020_11_0204)
 
 
@@ -278,11 +278,11 @@ utils.pprint(df_2020_11_0204)
 # Make sure the dataframe is sorted
 
 # <example>
-#df = utils.csv_to_df(csv_cnts, index_col='date', parse_dates=['date'])
-#df.sort_index(inplace=True)
-## Note that pandas will use the previous date (whatever that is, by default)
-#rets = df.loc[:, 'close'].pct_change()  # <mask>
-#utils.pprint(rets)
+df = utils.csv_to_df(csv_cnts, index_col='date', parse_dates=['date'])
+df.sort_index(inplace=True)
+# Note that pandas will use the previous date (whatever that is, by default)
+rets = df.loc[:, 'close'].pct_change()  # <mask>
+utils.pprint(rets)
 # </example>
 
 
@@ -291,8 +291,8 @@ utils.pprint(df_2020_11_0204)
 # (problem: does not deal with holidays)
 
 # <example>
-#rets = df.loc[:, 'close'].pct_change(freq='B')  # <mask>
-#utils.pprint(rets)
+rets = df.loc[:, 'close'].pct_change(freq='B')  # <mask>
+utils.pprint(rets)
 # </example>
 
 

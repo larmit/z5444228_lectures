@@ -207,8 +207,7 @@ fmt = '%Y-%m-%d'
 # We can use assignment statements to convert columns
 #
 # Convert the elements in the Date column
-#df.loc[:, 'date']  = '?'
-
+df.loc[:, 'date']  = pd.to_datetime(df.loc[:,'date'])
 
 #utils.pprint(df, "DF after converting date column")
 
@@ -219,12 +218,12 @@ fmt = '%Y-%m-%d'
 # We can set the index to a column containing datetime objects
 
 # <example>
-#df = utils.csv_to_df(csv_cnts)
-#df.loc[:, 'date'] = pd.to_datetime(df.loc[:, 'date'])
-#utils.pprint(df, "DF before setting the index")
-#df.set_index('date', inplace=True)
-#utils.pprint(df, "DF after setting the index")
-#utils.pprint(df.index)
+df = utils.csv_to_df(csv_cnts)
+df.loc[:, 'date'] = pd.to_datetime(df.loc[:, 'date'])
+utils.pprint(df, "DF before setting the index")
+df.set_index('date', inplace=True)
+utils.pprint(df, "DF after setting the index")
+utils.pprint(df.index)
 # </example>
 
 

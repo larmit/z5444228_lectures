@@ -258,17 +258,30 @@ delta  = '?'
 #   Exercises (5 mins each)
 # ----------------------------------------------------------------------------
 # 1. For how many seconds have you been alive?
+birth = dt.datetime(1974,11,8,hour=8,minute=45)
+now =dt.datetime.now()
+alive =now-birth
+utils.pprint(alive,'alive')
+utils.pprint(alive.seconds,'alive.seconds')
 
-
+secs= (alive.days*24*60*60)+alive.seconds
+msg = f"I hav ebeen alive for {secs:,.0f}"
+# utils.pprint(msg)
 
 # 2. How old will you be in 1,340 days
+now = dt.datetime.now()
+fut =now +dt.timedelta(days=1340)
+alive =fut-birth
+fut_age=alive.days//365
+utils.pprint(fut_age,"fut_age")
 
 
 # ---------------------------------------------------------------------------- 
 #   The `strftime` method
 #   Used to create strings representing dates (in different format)
 # ---------------------------------------------------------------------------- 
-
+# strftime=dt.datetime.strftime()
+# print(now.strftime())
 # | Directive | Meaning                                                       | Example                  |
 # |-----------|---------------------------------------------------------------|--------------------------|
 # | %a        | Weekday as locale's abbreviated name.                         | Sun, Mon,...             |
@@ -293,19 +306,21 @@ delta  = '?'
 # Create a datetime object representing
 #   2020-12-31 00:00:00
 # <example>
-#date = dt.datetime(year=2020, month=12, day=31, hour=0)
-#utils.pprint(date, "date is:")
+date = dt.datetime(year=2020, month=12, day=31, hour=0)
+utils.pprint(date, "date is:")
 # </example>
 
 # Convert to a **string** with the following formats
 #   2020-12-31
 #   Dec 31, 2020
-s1  = '?'
+s1  = date.strftime('%Y-%m-%d')
+utils.pprint(s1,"s1")
 # <example>
 #s1 = date.strftime('%Y-%m-%d')
 # </example>
 #print(s1)
-s2  = '?'
+s2  = date.strftime('%b %d, %Y')
+utils.pprint(s2,"s2")
 # <example>
 #s2 = date.strftime('%b %d, %Y')
 # </example>

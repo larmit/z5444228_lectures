@@ -7,5 +7,5 @@
 import os
 
 
-PRJDIR = '/Users/larmit/Documents/pythonCode/toolkit'
+PRJDIR = r'C:\CodeProjects\z5444228_lectures'
 DATADIR = os.path.join(PRJDIR, 'data')

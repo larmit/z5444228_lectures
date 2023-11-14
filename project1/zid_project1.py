@@ -464,5 +464,5 @@ if __name__ == "__main__":
     _test_line_to_dict()
     # _test_verify()
     _test_create_data_dict()
-    _test_create_json(os.path.join(DATDIR, 'data.json'))  # Save the file to data/data.json
+    # _test_create_json(os.path.join(DATDIR, 'data.json'))  # Save the file to data/data.json
     pass
